@@ -1,0 +1,12 @@
+' 『ちょっとしたことでうまくいく 発達障害の人が上手に働くための本』p.78
+Private Sub Workbook_SheetSelectionChange(ByVal Sheet As Object, ByVal Target As Range)
+	If Target.Cells.Count > 1 Then Exit Sub
+	Application.ScreenUpdating = False
+	Cells.Interior.ColorIndex = 0
+	Cells.Font.ColorIndex = 15
+	With Target
+		.EntireRow.Interior.ColorIndex = 8
+		.EntireRow.Font.ColorIndex = 1
+	End With
+	Application.ScreenUpdating = True
+End Sub
