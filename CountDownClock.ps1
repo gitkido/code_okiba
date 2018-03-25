@@ -1,7 +1,20 @@
 ﻿# count down clock
 
 # 基準時刻 (定時) を定義
-$goHomeTime = Get-Date -Date 18:00
+$st = $True
+while ($st) {
+	Write-Host "今日の定時を入力してね 例: 18:00"
+	$readStr = Read-Host
+	$goHomeTime = Get-Date -Date $readStr
+	
+	# 入力文字列をDateとして解釈できなければ、もう一度受け付ける
+	if (!$?) {
+		Write-Host "入力形式が不正です"
+		Write-Host ""
+	} else {
+		$st = $False
+	}
+}
 
 # 無限ループ
 while (1) {
